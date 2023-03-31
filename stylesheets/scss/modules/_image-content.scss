@@ -1,0 +1,142 @@
+/* Page Intro */
+.image-content {
+  @extend .width--max;
+  overflow: hidden;
+  position: relative;
+  
+  .section_container {
+    padding-bottom: 40px;
+    @include respond-above(sm) {
+      padding-top:116px;
+      padding-bottom:116px;
+    }
+  }
+  
+  .section_background {
+    position: relative;
+    display: block;
+    padding-top: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    @include respond-above(sm) {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      width: 75%;
+      padding-top: 0px;
+    }
+  }
+  
+  .section_content {
+    display: block;
+    position: relative;
+    @include default-shadow;
+    z-index: 1;
+    
+    .section_content-wrapper {
+      position: relative;
+      z-index: 1;
+      background-color: white;
+      padding: 34px;
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      @include respond-above(sm) {
+        padding: 50px;
+        max-width: none;
+      }
+    }
+    
+    & > * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      bottom: -20px;
+      top: calc(50% + 20px);
+      left: -20px;
+      right: -20px;
+      background-color: $primary-color;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+    
+    @include respond-above(sm) {
+      width: 75%;
+      margin-left: 20px;
+    }
+    
+    @include respond-above(md) {
+      width: 55%;
+      .section_content-wrapper {
+        padding: 50px;
+      }
+    }
+  }
+  
+  &.image--first {
+    .section_background {
+      @include respond-above(sm) {
+        position: absolute;
+        left: 0px;
+        right: auto;
+        top: 0px;
+        bottom: 0px;
+        width: 75%;
+        padding-top: 0px;
+      }
+    }
+    
+    .section_content {
+      @include respond-above(sm) {
+        margin-left: calc(25% - 20px);
+      }
+      
+      @include respond-above(md) {
+        width: 55%;
+        margin-left: calc(45% - 20px);
+      }
+    }
+  }
+}
+
+.image-content + .bg--offwhite {
+  position: relative;
+  &:before {
+    z-index: -1;
+    content: '';
+    display: block;
+    position: absolute;
+    top: -300px;
+    left: 0px;
+    background-color: $lightest-gray;
+    width: calc(100% - 0px);
+    height: 100%;
+  }
+}
+
+
+/* Background Elements */
+.image-content {
+  .bg_dots {
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 3%;
+    right: 3%;
+    z-index: -1;
+    height: 50px;
+    @include dots;
+    
+  }
+}

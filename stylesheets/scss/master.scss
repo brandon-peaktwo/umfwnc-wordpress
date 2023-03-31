@@ -1,0 +1,106 @@
+@charset 'UTF-8';
+
+
+/**
+* Here you would add any of your custom component classes; stuff that you'd
+* want loaded *before* the utilities so that the utilities could still
+* override them.
+*
+* Example:
+*
+* .btn { ... }
+* .form-input { ... }
+*
+* Or if using a preprocessor or `postcss-import`:
+*
+* @import "components/buttons";
+* @import "components/forms";
+*/
+
+// 1. Configuration and helpers
+@import
+  'utilities/variables',
+  'utilities/flexbox', 
+  'utilities/functions',
+  'utilities/breakpoints',
+  'utilities/mixins',
+  //'utilities/animations', 
+  'utilities/dots',
+  'utilities/gradients';
+
+// 2. Vendors
+@import
+  'vendors/normalize';
+
+// 3. Base stuff
+@import
+  'base/base',
+  'base/typography',
+  'base/helpers';
+  
+// 4. Components
+@import
+  'components/forms',
+  'components/button',
+  'components/lists',
+  'components/icons',
+  'components/modals',
+  'components/slick';
+
+// 5. Module-related sections
+@import
+  'modules/page-background',
+  'modules/items',
+  'modules/call-to-action',
+  'modules/section-header',
+  'modules/header',
+  'modules/mobile-nav',
+  'modules/footer',
+  'modules/numbers',
+  'modules/resources',
+  'modules/quote',
+  'modules/image-content',
+  'modules/page-hero';
+
+// 6. Page-specific styles
+@import
+  'pages/about', 
+  'pages/leadership', 
+  'pages/audiences', 
+  'pages/contact', 
+  'pages/flex', 
+  'pages/home';
+
+
+/* -- CSS variables */
+:root {
+  --outlineColor: #5db7a5,
+}
+
+/* -- For screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* -- A subtle focus style for keyboard-input elements */
+.text-input:focus {
+    outline: 1px solid var(--outlineColor); /* Adjust to suit your tastes */
+}
+
+/* -- No outline for non-keyboard-inputs elements */
+button:focus,
+select:focus {
+    outline: none;
+}
+
+html.user-is-tabbing *:focus {
+    outline: 2px solid var(--outlineColor) !important; /* for non-webkit browsers */
+    outline: 5px auto -webkit-focus-ring-color !important;
+}

@@ -1,0 +1,12 @@
+/// Mixin printing a linear-gradient 
+@mixin linear-gradient($direction, $gradients...) {
+  background-color: nth($gradients, 1);
+  background-image: linear-gradient($direction, $gradients...);
+}
+
+
+/*
+@mixin gradient1hover {
+  @include linear-gradient(286deg,#ff1c52, #ff4e52 51%, #ff8652 21%, #ffe650 -11%);
+}
+*/

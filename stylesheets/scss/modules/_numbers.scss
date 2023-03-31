@@ -1,0 +1,123 @@
+.numbers {
+  .page-template-audience & {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .numbers_content {
+    display: block;
+    width: 100%;
+    
+    p {
+      @include font-size(18);
+    }
+    
+    @include respond-above(md) {
+      width: 46%;
+      display: inline-block;
+      margin-right: -5px;
+      vertical-align: middle;
+    }
+  }
+  .numbers_list {
+    
+    .page-template-audience & {
+      margin-top: 60px;
+      @include respond-above(md) {
+        display: inline-block;
+        width: 52%;
+        margin-left: 2%;
+        margin-top: 0px;
+        vertical-align: middle;
+      }  
+    }
+    
+    .numbers_nav {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid $primary-color;
+      text-align: center;
+    
+      .nav_item {
+        display: inline-block;
+        padding: 12px 18px;
+        border-bottom: 4px solid white;
+        @include transition(all .3s ease);
+        color: $midder-gray;
+        
+        @include respond-above(md) {
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+        
+        &.current {
+          border-color: $primary-color;
+          color: $text-color;
+        }
+      }
+    }
+    .numbers_items {
+      @include flexbox;
+      @include justify-content(space-around);
+      @include align-items(space-between);
+      @include flex-flow(row wrap);
+      
+      .numbers_item {
+        @include box-sizing(border-box);
+        @include flex(0 1 200px);
+        padding: 24px 10px;
+        margin: 0%;
+        text-align: center;
+        
+        .icon {
+          display: block;
+          margin-bottom: $global-spacing * 1.5;
+          width: 20px;
+          height: 20px;
+          margin-left: auto;
+          margin-right: auto;
+          
+          &:last-of-type {
+            @include rotate(180);
+            margin-bottom: 0px;
+            margin-top: $global-spacing * 1.5;
+          }
+        }
+        
+        .numbers_stat {
+          display: block;
+          font-family: playfair-display, serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 64px;
+          line-height: 85px;
+          text-align: center;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          font-feature-settings: 'case';
+          color: #AFB6BC;
+        }
+        
+        .numbers_title {
+          display: block;
+          @include label-style(18px);
+        }
+        
+        .points {
+          .point {
+            display: block;
+            @include font-size(16);
+            line-height: 1.2em;
+          }
+        }
+      }
+    }
+    .numbers_tab {
+      display: none;
+  
+      &.current {
+        display: inherit;
+      }
+    }
+  }
+}

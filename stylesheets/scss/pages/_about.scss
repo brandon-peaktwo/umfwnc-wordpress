@@ -1,0 +1,47 @@
+/* Values Section */
+
+.values {
+  display: block;
+  padding-left: $global-spacing;
+  padding-right: $global-spacing;
+  .value {
+    display: block;
+    width: 100%;
+    margin-bottom: $global-spacing * 1.5;
+    text-align: center;
+    
+    .value_icon {
+      display: block;
+      margin-bottom: $global-spacing * 1.5;
+      width: 20px;
+      height: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    h3 {
+      @include label-style(21);
+      margin-bottom: $global-spacing;
+    }
+  }
+  
+  @include respond-above(sm) {
+    .values_container {
+      @include flexbox;
+      @include justify-content(stretch);
+      @include align-items(space-between);
+      @include flex-flow(row wrap);
+    }
+    
+    .value {
+      @include flex(0 1 49%);
+      margin: .5%;
+    }
+  }
+  
+  @include respond-above(md) {
+    .value {
+      @include flex(0 1 24%)
+    }
+  }
+}

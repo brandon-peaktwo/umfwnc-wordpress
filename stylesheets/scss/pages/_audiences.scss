@@ -1,0 +1,118 @@
+/* Rep Contact */
+.rep-contact {
+  @extend .width--max;
+  position: relative;
+  
+  .rep_container {
+    @include respond-above(sm) {
+      padding-top:98px;
+      padding-bottom:78px;
+    }
+    
+    @include respond-above(md) {
+      @include wrapper(0, 78px);
+      padding-top: 98px;
+    }
+  }
+  
+  .rep_background {
+    position: relative;
+    display: block;
+    padding-top: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    @include respond-above(sm) {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      bottom: 0px;
+      width: 60%;
+      padding-top: 0px;
+    }
+  }
+  
+  .rep_content {
+    display: block;
+    position: relative;
+    @include default-shadow;
+    z-index: 1;
+    
+    .rep_content-wrapper {
+      position: relative;
+      z-index: 1;
+      background-color: white;
+      padding: 30px;
+      
+      @include respond-above(sm) {
+        //padding: 70px 115px;
+      }
+    }
+    
+    & > * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: -20px;
+      bottom: calc(50% + 20px);
+      left: -20px;
+      right: -20px;
+      background-color: $primary-color;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+    
+    
+    @include respond-above(sm) {
+      width: 75%;
+    }
+    
+    @include respond-above(md) {
+      width: 62%;
+      margin-left: 38%;
+      .rep_content-wrapper {
+        padding: 46px;
+      }
+    }
+  }
+}
+
+.faqs {
+  .questions {
+    @extend .container;
+    
+    @include respond-above(sm) {
+      @include content-columns(2, 32px);
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    
+    .question {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 24px;
+      -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+      
+      &:before {
+        content: '>';
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        color: $primary-color;
+        font-weight: 700;
+      }
+    }
+  }
+}

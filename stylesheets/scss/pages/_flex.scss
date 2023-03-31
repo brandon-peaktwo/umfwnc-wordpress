@@ -1,0 +1,71 @@
+.page-template-default {
+  .page_hero {
+    @extend .margin--bottom;
+  }
+  
+  .cta {
+     @extend .margin--top;
+  }
+  
+  .faqs {
+    .questions {
+      @extend .container;
+      
+      @include respond-above(sm) {
+        @include content-columns(2, 32px);
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+      
+      .question {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 24px;
+        -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+        
+        &:before {
+          content: '>';
+          display: block;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          color: $primary-color;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  
+  .calculator {
+    .form-group {
+      display: block;
+      margin-bottom: 24px;
+      @include box-sizing(border);
+      &:last-of-type {
+        margin-bottom: 0px;
+      }
+      
+      &.form-total {
+        p, span {
+          font-weight: 700;
+          @include font-size(20);
+        }
+        
+        .loan-total {
+          padding: 8px 20px;
+          background-color: $dark-gray;
+          color: white;
+          display: inline-block;
+        }
+        .calculate {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,61 @@
+.section-header {
+  text-align: center;
+  
+  .section-header_icon {
+    display: block;
+    margin-bottom: $global-spacing * 1.5;
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .section-header_label {
+    @include section-header_label;
+    margin-bottom: 20px;
+  }
+  
+  .sub-title {
+    p {
+      @extend .alternate;
+    }
+  }
+  
+  .link {
+    display: block;
+    margin-top: 24px;
+    
+    @include respond-above(sm) {
+      margin-top: 24px;
+    }
+
+  }
+  
+  .color--white & {
+    h2 { 
+      color: white;
+    }
+    .link {
+      color: white;
+    }
+    .section-header_label {
+      @include section-header_label(white);
+    }
+    
+    .section-header_icon {
+       filter:  brightness(0) invert(1);
+    }
+  }
+  
+  .section-header_columns {
+    margin-top: 32px;
+    margin-bottom: 40px;
+    text-align: left;
+    
+    @include respond-above(sm) {
+      @include content-columns(2, 32px);
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+  }
+}

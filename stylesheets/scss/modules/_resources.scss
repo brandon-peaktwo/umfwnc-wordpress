@@ -1,0 +1,162 @@
+/* GRID */
+.resources {
+  
+  .resources_list-images {
+    @include wrapper(0, 0);
+    display: block;
+    
+    .resource {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 110px 20px;
+      
+      &:after {
+        content:'';
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-color: rgba($black, .2);
+      }
+    }
+    
+    @include respond-above(sm) {
+      @include flexbox;
+      @include justify-content(stretch);
+      @include align-items(space-between);
+      @include flex-flow(row nowrap);
+        
+      .resource {
+        @include flex(0 1 48%);
+        margin: 1%;
+      }
+    }
+  }
+  
+  .resources_list-text {
+    @include wrapper(0, 0);
+    display: block;
+    
+    .resource {
+      display: block;
+      width: 100%;
+    }
+    
+    @include respond-above(sm) {
+      @include flexbox;
+      @include justify-content(space-around);
+      @include align-items(space-between);
+      @include flex-flow(row wrap);
+        
+      .resource {
+        @include flex(0 1 29%);
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-bottom: 4%;
+      }
+    }
+  }
+  
+  .resources_list-images + .resources_list-text {
+    margin-top: 80px;
+  }
+}
+
+
+/* Image Resource Lists */
+.resources .resources_list-images {
+  .resource {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    
+    
+    .resource_title {
+      position: relative;
+      z-index: 1;
+      color: white;
+      @include label-style(18);
+      line-height: 22px;
+      
+      &:after {
+        z-index: -1;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 40%;
+        bottom: 0px;
+        left: -8px;
+        right: -8px;
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+
+/* Text Resource Lists */
+.resources .resources_list-text {
+  .resource {
+    text-align: center;
+    
+    h3 {
+      @include label-style(21);
+      margin-bottom: 20px;
+      
+      &:before {
+        content:'';
+        display: block;
+        margin: 24px auto;
+        width: 80px;
+        border-top: 1px solid #6C9DC4;
+      }
+    }
+    
+    a {
+      display: block;
+      margin-top: 20px;
+    }
+  }
+}  
+
+
+.page-template-learning-center,
+.page-template-default {
+  .resources {
+    .resources_list-images {
+      
+      @include respond-above(sm) {  
+        margin-bottom: $global-spacing * 8;
+        @include flex-flow(row wrap);
+        
+        .resource {
+          padding: 148px 20px;
+        }
+      }
+    }
+    
+    .resources_list-text {
+      .icon {
+        display: block;
+        margin-bottom: $global-spacing * 1.5;
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      h3 {
+        &:before {
+          display: none;
+        }
+        
+        
+      }
+    }
+  }
+}

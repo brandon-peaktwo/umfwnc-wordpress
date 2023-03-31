@@ -1,0 +1,78 @@
+/* GRID */
+.quote {
+  display: block;
+  position: relative;
+  z-index: 2;
+
+  .quote_box {
+    @include wrapper(0,65px 30px);
+  }
+}
+
+
+/* Styling */
+.quote {
+  text-align: center;
+  .quote_box {
+    position: relative;
+    background-color: $dark-blue;
+    
+    p {
+      color: white;
+      font-weight: 900;
+      @include font-size(22);
+      line-height: 1.28em;
+      max-width: 940px;
+      margin-left: auto;
+      margin-right: auto;
+      
+      @include respond-above(sm) {
+        @include font-size(42);
+      }
+    }
+    
+    .quote_name {
+      display: block;
+      margin-top: 30px;
+      font-style: normal;
+      font-weight: $font-weight-bold;
+      @include font-size(14);
+      line-height: 1.4em;
+      font-family: $header-font-stack;
+      text-align: center;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: white;
+    }
+  }   
+}
+
+
+/* Background Elements */
+.quote {
+  .bg_dots {
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 3%;
+    right: 3%;
+    z-index: -1;
+    height: 50px;
+    @include dots;
+    
+  }
+}
+
+.bg--offwhite + .quote {
+  &:before {
+    content:'';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 100px;
+    background-color: $lightest-gray;
+  }
+}

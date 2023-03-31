@@ -1,0 +1,230 @@
+.team-members {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(space-between);
+  @include flex-flow(row wrap);
+    
+  .member {
+    @include flex(1 0 300px);
+    margin-bottom: 48px;
+    
+    @include respond-above(md) {
+      @include flex(0 1 300px);
+      margin-bottom: 60px;
+    }
+    
+    .member_thumbnail {
+      border-bottom: 1px solid $primary-color;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    h3 {
+      @include label-style(21);
+      margin-bottom: 4px;
+    }
+    
+    .title {
+      @include font-size(20);
+      line-height: 1em;
+      
+      &:after {
+        content:'';
+        display: block;
+        margin: 20px auto;
+        width: 80px;
+        border-top: 1px solid #6C9DC4;
+      }
+    }
+    
+    .details {
+      @include font-size(20);
+      line-height: 1.3em;
+      margin-bottom: 16px; 
+      span {
+        display: block;
+      }
+    }
+  }
+}
+
+
+// Team Carousel
+.team-carousel {
+  overflow: hidden;
+  
+  .slick-list {
+    padding-top: 0px;
+  }
+  
+  @include respond-above(md) {
+    height: auto;
+  }
+  
+  .slide {
+    @include clearfix;
+    
+    .slide_header {
+      h2 {
+        @include label-style(40);
+        margin-bottom: 4px !important;
+      }
+      
+      .title {
+        @include font-size(16);
+        line-height: 1em;
+      }
+    }
+    
+    .slide_info {
+      margin-bottom: $global-spacing * 2;
+      text-align: center;
+      
+      @include respond-above(sm) {
+        margin-bottom: 0px;
+        display: block;
+        float: left;
+        width: 50%;
+      }
+      
+      @include respond-above(sm) {
+        width: 40%;
+      }
+    }
+    
+    .slide_content {
+      display: block;
+      @include respond-above(sm) {
+        display: block;
+        float: left;
+        width: 50%;
+        padding-left: 32px;
+      }
+      
+      @include respond-above(sm) {
+        width: 60%;
+      }
+    }
+  }
+}
+
+.team_controls {
+  display: none;
+  
+  @include respond-above(md) {
+    display: block;
+    position: absolute;
+    bottom: -0px;
+    left: 0px;
+    width: 100%;
+    z-index: 4;
+    
+    .control {
+      &.next-slide {
+        float: right;
+        margin-right: 32px;
+      }
+      
+      &.prev-slide {
+        margin-left: 32px;
+      }
+    }
+  }
+}
+
+.executives {
+  h2 {
+    margin-bottom: 32px;
+    &:after {
+      content:'';
+      display: block;
+      margin: 32px auto;
+      width: 80px;
+      border-top: 1px solid #6C9DC4;
+    }
+  }
+  
+  .executives_list {
+    margin-top: 48px;
+    max-width: 900px !important;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @include respond-above(sm) {
+      @include content-columns(2, 32px);
+    }
+      
+    p {
+      @include font-size(18);
+      margin-bottom: 14px;
+    }
+  }
+  
+  .officers {
+    @include flexbox;
+    @include justify-content(space-between);
+    @include align-items(space-between);
+    @include flex-flow(row wrap);
+    max-width: 1000px !important;
+    margin-left: auto;
+    margin-right: auto;
+    
+    .officers_year {
+      @include flex(0 1 300px);
+      margin-bottom: 40px;
+      
+      h3 {
+        @include label-style(24);
+
+        margin-bottom: 24px;
+        &:after {
+          content:'';
+          display: block;
+          margin: 24px 0px;
+          width: 80px;
+          border-top: 1px solid #6C9DC4;
+        }
+      }
+    }
+      
+  }
+}
+
+.letter {
+  .letter_container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .letter_welcome {
+    @include clearfix;
+    
+    p {
+      @include respond-above(sm) {
+        display: inline-block;
+        vertical-align: bottom;
+        width: calc(100% - 320px);
+        
+      }
+    }
+  }
+  .letter_thumbnail {
+    max-width: 280px;
+    margin-top: 32px;
+    mix-blend-mode: multiply;
+    @include respond-above(sm) {
+      display: inline-block;
+      margin-top: 0px;
+      margin-left: 40px;
+      margin-right: -5px;
+    }
+  }
+  
+  .letter_content {
+    @include respond-above(sm) {
+      @include content-columns(2, 32px);
+    }
+  }
+}
+
+

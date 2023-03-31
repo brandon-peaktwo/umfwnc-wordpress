@@ -1,0 +1,100 @@
+// The markup for these items is included at the template level in most cases, not within a module
+
+// Section Layout & Grid
+.items {
+  @include flexbox;
+  @include justify-content(stretch);
+  @include align-items(stretch);
+  @include flex-flow(row wrap);
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  &.three-col {
+    .item {
+      @include respond-above(sm) {
+        @include flex(0 1 50%); 
+      }
+      
+      @include respond-above(md) {
+        @include flex(0 1 33%);
+      }
+    }
+  }
+}
+
+
+// Individual Item
+.item {
+  margin-top: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  
+  .item_icon {
+    display: block;
+    margin-bottom: $global-spacing * 1.5;
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .item_title {
+    margin-bottom: $global-spacing;
+    font-family: $header-font-stack;
+    color: $dark-gray;
+    font-weight: $font-weight-bold;
+    @include font-size(21);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+  }
+  
+  p {
+    margin-bottom: $global-spacing;
+  }
+  
+  &.text {
+    text-align: center;
+  }
+}
+
+
+.page-template-audience-landing {
+  .items .item {
+    &:last-of-type {
+      padding-right: 0px;
+      padding-left: 0px;
+      position: relative;
+      
+      & > * {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .item_wrapper {
+        margin: 12px;
+        padding: 32px;
+        background-color: white;
+        @include default-shadow;
+      }
+      
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: $primary-color;
+        height: 50%;
+        width: 100%;
+        z-index: 1;
+      }
+      @include respond-above(sm) {
+        @include flex(0 1 100%);
+      }
+      @include respond-above(md) {
+        @include flex(0 1 66%);
+      }
+    }
+  }
+}
+

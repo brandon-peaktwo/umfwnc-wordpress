@@ -1,0 +1,47 @@
+nav.primary .menu>.menu-item>.sub-menu .menu-items .column {
+	flex: 0 1 280px;
+}
+
+.flex-wysiwyg p a,
+.flex-wysiwyg p em {
+	font-weight: 400;
+	line-height: 1.67em;
+	font-size: .88889rem;
+}
+
+ul.footer-social-icons {
+	display: flex;
+	list-style-type: none;
+	justify-content: center;
+	margin-bottom: 0px;
+	padding: 0px;
+
+	li {
+
+		a {
+			display: block;
+			padding: 0px 10px;
+
+			img {
+				width: 30px;
+				height: auto;
+			}
+		}
+	}
+}
+
+.footer_copyright {
+	margin-top: 15px !important;
+}
+
+.footer_address {
+
+	a, span {
+		color: #fff;
+		font-family: benton-sans-compressed,"Georgia",serif;
+		text-transform: uppercase;
+		font-weight: 500;
+		font-size: 15px;
+		font-size: .83333rem;
+	}
+}

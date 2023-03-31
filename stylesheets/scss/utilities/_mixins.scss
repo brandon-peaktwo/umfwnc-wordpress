@@ -1,0 +1,305 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+
+@mixin keyframes($name) {
+    @-webkit-keyframes $name {
+        @content;
+    }
+
+    @-moz-keyframes $name {
+        @content;
+    }
+
+    @-ms-keyframes $name {
+        @content;
+    }
+
+    @-o-keyframes $name {
+        @content;
+    }
+
+    @keyframes $name {
+        @content;
+    }
+}
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+// Handles headline font family
+@mixin header-font {
+  font-family: $header-font-stack;
+  text-transform: uppercase;
+  font-weight: $font-weight-regular;
+}
+
+// Handles font sizes
+@mixin font-size( $size: 18 ) {
+  font-size: $size + px;
+  font-size: ($size / 18) + rem;
+}
+
+@mixin label-style($font-size: 14) {
+  font-family: $header-font-stack;
+  font-weight: $font-weight-bold;
+  @include font-size($font-size);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@mixin headline(){
+  display: block;
+  margin-bottom: 24px;
+  @include font-size(26);
+  font-weight: $font-weight-black;
+  line-height: 1.38em;
+  color: $primary-color;
+  
+  @include respond-above(sm) {
+    @include font-size(46);
+  }
+}
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-property:    $duration;
+  -o-transition-property:      $duration;
+  -webkit-transition-property: $duration;
+  transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function:    $timing;
+  -o-transition-timing-function:      $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+  -moz-transition-delay:    $delay;
+  -o-transition-delay:      $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay:         $delay;
+}
+
+// generic transform
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+    -o-transform: $transforms;
+   -ms-transform: $transforms;
+-webkit-transform: $transforms;
+       transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+@include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+@include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+@include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+@include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+ moz-transform-origin: $origin;
+    -o-transform-origin: $origin;
+   -ms-transform-origin: $origin;
+-webkit-transform-origin: $origin;
+       transform-origin: $origin;
+}
+// opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+//Box Sizing
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/// Convert angle
+@function convert-angle($value, $unit) {
+  $convertable-units: deg grad turn rad;
+  $conversion-factors: 1 (10grad/9deg) (1turn/360deg) (3.1415926rad/180deg);
+  @if index($convertable-units, unit($value)) and index($convertable-units, $unit) {
+    @return $value
+             / nth($conversion-factors, index($convertable-units, unit($value)))
+             * nth($conversion-factors, index($convertable-units, $unit));
+  }
+  
+  @warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";
+}
+
+/// Test if `$value` is an angle
+@function is-direction($value) {
+  $is-direction: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+  
+  @return $is-direction or $is-angle;
+}
+
+/// Convert a direction to legacy syntax
+@function legacy-direction($value) {
+  @if is-direction($value) == false {
+    @warn "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be an angle or a direction";
+  }
+  
+  $conversion-map: ( 
+    to top          : bottom,
+    to top right    : bottom left,
+    to right top    : left bottom,
+    to right        : left,
+    to bottom right : top left,
+    to right bottom : left top,
+    to bottom       : top,
+    to bottom left  : top right,
+    to left bottom  : right top,
+    to left         : right,
+    to left top     : right bottom,
+    to top left     : bottom right
+  );
+    
+  @if map-has-key($conversion-map, $value) {
+    @return map-get($conversion-map, $value);
+  }
+  
+  @return 90deg - convert-angle($value, 'deg');
+}
+
+// Our default shadow for this theme
+@mixin default-shadow {
+  -webkit-box-shadow: 0 3px 9px 0 rgba(black, .1);
+    -moz-box-shadow: 0 3px 9px 0 rgba(black, .1);
+    -ms-box-shadow: 0 3px 9px 0 rgba(black, .1);
+    box-shadow: 0 3px 9px 0 rgba(black, .1);
+}
+
+// Adjust Default Shadow to hover
+@mixin default-hover-shadow {
+  -webkit-box-shadow: 0 12px 14px 0 rgba(black, .1);
+    -moz-box-shadow: 0 12px 14px 0 rgba(black, .1);
+    -ms-box-shadow: 0 12px 14px 0 rgba(black, .1);
+    box-shadow: 0 12px 14px 0 rgba(black, .1);
+}
+
+
+@mixin box-sizing($box-model: border) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+// Text Columns
+@mixin content-columns($columnCount, $columnGap: 20px) {
+  -webkit-column-count: $columnCount;
+     -moz-column-count: $columnCount;
+          column-count: $columnCount;
+  -webkit-column-gap: $columnGap;
+     -moz-column-gap: $columnGap;
+          column-gap: $columnGap;
+}
+
+// Default Border Radius to soften edges
+@mixin default-border($radius: 4px) {
+  border-radius: $radius;
+}
+
+
+@mixin flip {
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+
+@mixin triangle($direction, $color: $secondary-color, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{opposite-position($direction)}: ($size * 1.5) solid $color;
+  
+  $perpendicular-borders: $size solid transparent;
+  
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+  }
+}
+
+@mixin section-header_label($color: $primary-color) {
+  margin-bottom: $global-spacing * 1.5;
+  @include font-size(14);
+  font-family: $header-font-stack;
+  color: $color;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}

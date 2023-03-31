@@ -1,0 +1,84 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+/* Page Hero */ 
+.home-hero {  
+  padding-top: 100px;
+  background-size: cover;
+  background-position: center center;
+  @extend .margin--bottom;
+  
+  @include respond-above(sm) {
+    padding-top: 240px;
+
+  }
+      
+  .hero_container {
+    position: relative;
+  }
+  
+  .bg_dots {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    right: -62px;
+    left: 0px;
+    z-index: -1;
+    
+    height: 62px;
+    @include dots;
+    
+  }
+  
+  .hero_content {
+    @include default-shadow;
+    position: relative;
+    z-index: 2;
+    bottom: -100px;
+    width: 80%;
+    max-width: $width-thin;
+    margin-left: 0px;
+    padding: 30px 30px;
+    text-align: center;
+    background-color: $primary-color;
+    
+    .icon {
+      display: none;
+    }      
+    
+    @include respond-above(sm) {
+//       padding: 60px 99px;
+    }
+  }
+  
+  @include respond-below(md) {
+    .hero_content {
+      width: 100%;
+    }
+    
+    .bg_dots {
+      display: none;
+    }
+  }
+}
+
+.welcome {
+  .section_content {
+    position: relative;
+    
+    .icon-T {
+      @include opacity(0);
+    }
+  }
+  .welcome_thumbnail {
+    position: absolute;
+    left: calc(50% - 75px);
+    width: 150px;
+    top: -75px;
+    border-radius: 50%;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

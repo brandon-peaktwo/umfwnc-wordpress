@@ -1,0 +1,90 @@
+.icon {
+  display: inline-block;
+  background: transparent;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  &.flipped {
+    transform: rotate(180deg);
+  }
+}
+
+/*-----------------------
+@ICON COLORS
+------------------------*/
+/*
+[class*="icon-"][class*="-white"] {
+  background-image: url('/wp-content/themes/clrabb/images/caret-white.png');
+}
+
+[class*="icon-"][class*="-blue"] {
+  background-image: url('/wp-content/themes/clrabb/images/caret-blue.png');
+
+}
+*/
+
+
+/*-----------------------
+@CHEVRONS
+------------------------*/
+/*
+[class*="caret-white"] {
+  background-image: url('/wp-content/themes/clrabb/images/caret-white.png');
+}
+
+[class*="caret-black"] {
+  background-image: url('/wp-content/themes/clrabb/images/caret-black.png');
+}
+
+[class*="icon-caret-right"],
+[class*="icon-caret-left"] {
+  height: 15px;
+  width: 15px;
+  background-size: 8px;
+  
+  #cta & {
+    margin-left: 20px;
+  }
+}
+*/
+
+
+/*-----------------------
+@Brand Icon
+------------------------*/
+[class*="icon-T"] {
+  background-image: url('/wp-content/themes/umfwnc/images/icon-t.svg');
+  background-size: contain;
+}
+
+/*-----------------------
+@Calendar
+------------------------*/
+[class*="icon-date-white"] {
+  //background-image: url('/wp-content/themes/thrivesummit/images/icon-date-white.svg');
+}
+
+
+/*-----------------------
+@Location
+------------------------*/
+[class*="icon-location-white"] {
+  //background-image: url('/wp-content/themes/thrivesummit/images/icon-location-white.svg');
+}
+
+
+/*-----------------------
+@Time
+------------------------*/
+[class*="icon-time"] {
+  //background-image: url('/wp-content/themes/thrivesummit/images/icon-time.svg');
+}
+
+
+/*-----------------------
+@Location
+------------------------*/
+[class*="icon-pin"] {
+  //background-image: url('/wp-content/themes/thrivesummit/images/icon-location.svg');
+}

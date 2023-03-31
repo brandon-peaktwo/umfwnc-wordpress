@@ -1,0 +1,74 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+// This is the primary footer at the bottom of each page
+footer.global {
+  position: relative;
+  z-index: 3;
+  @extend .width--max;
+  background-color: #FBFCFD;
+}
+
+.footer_content {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 50px 20px;
+  background-color: $primary-color;
+  
+   @include respond-above(md) {
+     width: calc(100% - 300px);
+   }
+  
+   /* Background Element */
+    .bg_dots {
+      display: block;
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 225px;
+      z-index: -1;
+      height: 50px;
+      @include dots;
+    }
+
+  
+  .footer_title {
+    @include header-font;
+    @include font-size(17);
+    margin-bottom: $global-spacing / 2;
+  }
+  
+  .footer_address {
+    @include header-font;
+    @include font-size(15);
+  }
+  
+  .footer_copyright {
+    display: block;
+    @include font-size(14);
+  }
+}
+
+#footer_logo {
+  display:inline-block;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  img {
+    margin-top: 6px;
+  }
+  
+  @include respond-above(md) {
+    display:inline-block;
+    margin-right: -5px;
+    vertical-align: middle;
+    background-color: #FBFCFD;
+    padding: 40px 64px;
+    width: 300px;
+  }
+}

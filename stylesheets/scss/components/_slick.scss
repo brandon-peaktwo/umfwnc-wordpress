@@ -1,0 +1,111 @@
+// Slick Slider
+.slick-slider {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  
+  & > * {
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  li {
+    margin: 0;
+  }
+  
+  .slick-slide {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.slick-dots {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 20px 0 0 0;
+  padding: 0;
+  text-align: center;
+  
+  li {
+    display: inline-block;
+    margin: 0 5px;
+    
+    &:only-child {
+      display: none;
+    }
+  }
+  
+  button {
+    @include box-sizing;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    padding: 0;
+    text-indent: -9999px;
+    background: transparent;
+    border: 2px solid #fff;
+    @include default-border;
+    cursor: pointer;
+  }
+  
+  .slick-active button {
+    background: #fff;
+  }
+}
+
+.slick-arrow,
+button.scroll {
+  @include box-sizing;
+  display: inline-block;
+  position: relative;
+  z-index: 3;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width:60px;
+  height:60px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  text-indent: -9999px;
+  background-color: transparent;
+  background-image: url('/wp-content/themes/umfwnc/images/icon-arrow.svg');
+  background-size: 39px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: $primary-color;
+  border: 0px solid $primary-color;
+  cursor: pointer;
+  border-radius: 0%;
+  
+  &.slick-disabled {
+    border-color: $dark-gray !important;
+    cursor: default;
+    background-color: $dark-gray !important;
+    @include opacity(.2);
+  }
+
+  &:hover {
+    background-color: $primary-color;
+    background-color: $primary-color;
+    background-image: url('/wp-content/themes/umfwnc/images/icon-arrow-white.svg');
+  }
+  
+  &.slick-prev,
+  &.prev-slide,
+  &.left {
+    @include rotate(180);
+    margin-right: 16px;
+  }
+}
+
+.slick-list {
+  padding: 32px 0px;
+  overflow: visible;
+}

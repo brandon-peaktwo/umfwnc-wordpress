@@ -1,0 +1,79 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Regular font family
+$text-font-stack: basic-sans, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+/// Header font family
+$header-font-stack: benton-sans-compressed, 'Georgia', serif !default;
+
+/// Code (monospace) font family
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+// Base Font Size
+$font-size-base: 18px; // Base size for all devices
+
+// Base Font Size
+$global-spacing: 16px; // Base size for all devices
+
+/* Font Weights */
+// Optionally override defaults for normal/bold, as well as specify additional weights
+$font-weight-normal: 400;
+$font-weight-regular: 500; 
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+
+/**** Colors ****/
+
+/* Color Palette */
+$blue: #7799b4;
+$light-blue: #E9EEF2;
+$mid-blue: #7091A9;
+$dark-blue: #254A68;
+$red: #EE3E40;
+
+//Greys
+$lightest-gray: #f4f5f5!default;
+$light-gray: #eeeeee !default;
+$mid-gray: #6c9dc4 !default;
+$midder-gray: #AFB6BC !default;
+$dark-gray: #3D4144 !default;
+$black: #1C1C1C;
+
+$text-color: $dark-gray;
+$primary-color: $blue;
+$secondary-color: $red;
+$brand-color: $blue;
+
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1400px !default;
+$width-thin: 740px;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1800px
+);
+$widths: (
+  xs: auto,
+  sm: 748px,
+  md: 980px,
+  lg: 1180px
+);
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;

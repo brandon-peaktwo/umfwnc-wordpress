@@ -1,0 +1,101 @@
+/* Contact Form Section */
+.contact-form {
+  max-width: 780px;
+  display: block;
+  position: relative;
+
+  z-index: 4;
+  
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+    
+  .form {
+    position: relative;
+    z-index: 1;
+    @include default-shadow;
+    
+    /* Background Element */
+    .bg_dots {
+      display: block;
+      position: absolute;
+      top: -30px;
+      left: 15%;
+      right: 15%;
+      z-index: -1;
+      height: 50px;
+      @include dots;
+    }
+    
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      bottom: -30px;
+      top: calc(50% + 30px);
+      left: -30px;
+      right: -30px;
+      background-color: $primary-color;
+    }
+
+    .form_wrapper {
+      display: block;
+      position: relative;
+      z-index: 1;
+      background-color: white;
+      padding: 30px;
+      
+      @include respond-above(sm) {
+        padding: 70px 115px; 
+      }
+    }
+    
+  }
+}
+
+/* Contact Items */
+.contact_items {
+  display: block;
+  width: 100%;
+  .contact_item {
+    display: block;
+    width: 100%;
+    margin-bottom: $global-spacing * 1.5;
+    padding-top: $global-spacing;
+    border-top: 1px solid $lightest-gray;
+    text-align: left;
+    background-color: white;
+    
+    h3 {
+      @include label-style(19);
+      margin-bottom: $global-spacing;
+    }
+    
+    p {
+      @include font-size(14);
+    }
+  }
+  
+  @include respond-above(sm) {
+    @include flexbox;
+    @include justify-content(stretch);
+    @include align-items(space-between);
+    @include flex-flow(row wrap);
+    
+    
+    .contact_item {
+      @include flex(0 1 48%);
+      margin: 1%;
+    }
+  }
+  
+  @include respond-above(md) {
+    .contact_item {
+      @include flex(0 1 29%);
+      margin: 2%;
+    }
+  }
+}

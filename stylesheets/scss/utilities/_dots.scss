@@ -1,0 +1,12 @@
+// Colors
+$bg: rgba(0, 0, 0, 0);
+$dot-color: #3882E8;
+
+// Dimensions
+$dot-size: 4px;
+$dot-space:12px;
+
+@mixin dots($color: $primary-color, $bg-color: white) {
+	background-image: radial-gradient($color 30%, transparent 30%);
+	background-size: $dot-space $dot-space;
+}

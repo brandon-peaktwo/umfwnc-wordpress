@@ -1,0 +1,24 @@
+.page-background {
+  display: none;
+  
+  @include respond-above(sm) {
+    display: block;
+  }
+  .bg_dots-wrapper {
+    @include wrapper(0, 0);
+    .bg_dots-1 {
+      position: absolute;
+      z-index: 4;
+      top: calc(50% - 300px);
+      left: 0px;
+      right: 0px;
+      height: 496px;
+      @include dots;
+      width: 50px;
+      
+      .page-template-about & {
+        top: calc(32% - 300px);
+      }
+    }
+  }
+}
