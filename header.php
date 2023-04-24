@@ -60,6 +60,7 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+
 <header class="global" data-aos="fade-down">
   <div class="header_container">
 	 <a id="header_logo" href="/">
@@ -201,6 +202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</a>
 	 </nav>
   </div>
+  <?php require(get_stylesheet_directory() . '/modules/announcement-bar.php'); ?>
 </header>
 
 <div class="page-background">

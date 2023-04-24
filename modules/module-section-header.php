@@ -5,6 +5,7 @@
   $content = get_field($section . '_header_content');
   $columns = get_field($section . '_header_columns');
   $link = get_field($section . '_header_link');
+  $cta_hero = get_field($section . '_header_cta');
   $modalContent= get_field($section . '_header_modal_content');
   
   if(get_field($section . '_header_modal_link') ) : 
@@ -37,6 +38,14 @@
   <?php if($link) :?>
     <a href="<?=$link['url'];?>" class="link" target="<?=$link['target'];?>"><?=$link['title'];?> ></a>
   <?php endif; ?>
+
+
+  <?php if($cta_hero) :?>
+    <div class="hero-cta">
+      <a href="<?=$cta_hero['url'];?>" class="cta-btn" target="<?=$cta_hero['target'];?>"><?=$cta_hero['title'];?> </a>
+    </div>
+  <?php endif; ?>
+  
   
   <?php if($modalContent) :?>
     <a href="#" class="modal-open link"><?=$modalLink;?> ></a>

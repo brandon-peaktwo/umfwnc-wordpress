@@ -306,3 +306,129 @@
 #give-to-a-fund-container .select-items div:hover, .same-as-selected {
 	background-color: #E9EEF2;
 }
+
+
+
+#top-announcement-bar {
+	display: none;
+	position: relative;
+	width: 100%;
+	color: #fff;
+	padding: 56px 0;
+	height: auto;
+	background: #2E4965;
+	opacity: 0;
+	transition: all .4s ease-in-out;
+	transform: translateY(-100%);
+}
+
+#top-announcement-bar.active {
+	display: flex;
+	opacity: 1;
+	transform: translateY(0%);
+	-webkit-transition: opacity 250ms ease-in-out;
+	-moz-transition: opacity 250ms ease-in-out;
+	-o-transition: opacity 250ms ease-in-out;
+	transition: opacity 250ms ease-in-out;
+}
+		
+
+@media screen and (max-width: 1200px) {
+	#top-announcement-bar.active .columns {
+		flex-direction: column;
+	}
+}
+
+#top-announcement-bar.active .wysiwyg {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#top-announcement-bar.active .columns .column.content-side {
+	-webkit-box-flex: 0;
+    -ms-flex: 0 0 73%;
+    flex: 0 0 73%;
+    text-align: left;
+}
+
+@media screen and (max-width: 1200px) {
+	#top-announcement-bar.active .columns .column.content-side {
+		flex: 0 0 100%;
+	}
+}
+
+#top-announcement-bar.active .columns .column.btn-side {
+	flex: 0 0 26%;
+    text-align: right;
+}
+
+@media screen and (max-width: 1200px) {
+	#top-announcement-bar.active .columns .column.btn-side {
+		flex: 0 0 100%;
+		margin-top: 40px;
+		text-align: left;
+	}
+}
+
+#top-announcement-bar.active .wysiwyg .content {
+	flex: 1;
+	width: 100%;
+}
+
+#top-announcement-bar.active .wysiwyg .content p {
+	color: #fff;
+	font-size: 22px;
+	line-height: 26px;
+	letter-spacing: 4.4px;
+	text-align: left;
+	font-weight: 700;
+	font-family: benton-sans-compressed,"Georgia",serif;
+}
+
+#top-announcement-bar.active .columns .column .banner-btn {
+	background-color: #D42D2D;
+	border: 1px solid #fff;
+	color: #fff;
+	font-family: benton-sans-compressed,"Georgia",serif;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 2.8px;
+	text-transform: uppercase;
+	padding: 20px 46px;
+}
+
+@media screen and (max-width: 990px) {
+	header.global {
+		padding-left: 0px !important;
+	}
+}
+
+.hero-cta {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+	justify-content: center;
+    margin: 45px 0 20px 0;
+}
+
+.hero_container .hero-cta .cta-btn {
+	background-color: #2E4965;
+	border: 1px solid #fff;
+	color: #fff;
+	font-family: benton-sans-compressed,"Georgia",serif;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 2.8px;
+	text-transform: uppercase;
+	width: 220px;
+	padding: 18px 46px;
+
+}
